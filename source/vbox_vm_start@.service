@@ -4,7 +4,7 @@ After=network.target vboxdrv.service
 Before=runlevel2.target shutdown.target
 
 [Service]
-User=pragmalin
+User=change_this
 Group=vboxusers
 Type=forking
 Restart=no
@@ -15,7 +15,7 @@ GuessMainPID=no
 RemainAfterExit=yes
 
 ExecStart=/usr/bin/VBoxManage startvm %i --type headless
-ExecStop=/usr/bin/VBoxManage controlvm %i acpipowerbutton
+ExecStop=/usr/bin/VBoxManage controlvm %i savestate
 
 [Install]
 WantedBy=multi-user.target
